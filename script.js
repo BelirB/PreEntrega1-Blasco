@@ -1,59 +1,91 @@
-let fernet = 1
-let whisky = 2
-let espumantes= 3
-let vino = 4
-let sumaTotal = 0
-let opcionFernet
+let alcohol = [
+    { id: 1, bebida: "Fernet", categoria: "aguardiente", disponiblesstock: 75, precio: 2750 },
+    { id: 2, bebida: "Vino tinto", categoria: "fermentadas", disponiblesstock: 90, precio: 1200 },
+    { id: 3, bebida: "Vino blanco", categoria: "fermentadas", disponiblesstock: 80, precio: 980 },
+    { id: 4, bebida: "Champagne", categoria: "aguardiente", disponiblesstock: 110, precio: 1300 },
+    { id: 5, bebida: "Whisky", categoria: "aguardiente", disponiblesstock: 80, precio: 3500 },
+    { id: 6, bebida: "Vodka", categoria: "aguardiente", disponiblesstock: 70, precio: 930 },
+    { id: 7, bebida: "Ron", categoria: "aguardiente", disponiblesstock: 40, precio: 1500 },
+    { id: 8, bebida: "Cerveza", categoria: "fermentadas", disponiblesstock: 150, precio: 850 },
+    { id: 9, bebida: "Tequila", categoria: "aguardiente", disponiblesstock: 65, precio: 900 },
+    { id: 10, bebida: "Ginebra", categoria: "aguardiente", disponiblesstock: 55, precio: 1300 },
 
-function bebida() {
-    alert("Bienvenidos al Drugstore Online\n ¿Qué desea llevar?")
-    alert("Antes de seguir con la compra, debemos corroborar de que usted es mayor de edad y pueda realizar compras de forma Online")
-let edad = Number(prompt("Ingrese su edad"))
-if (edad >= 18) {
-    alert("Usted cumple con la edad requerida para realizar esta compra")
-    let ingreseUnNumero = prompt("Ingrese la opcion deseada:\n 1-Fernet $2750\n 2-Whisky $3500\n 3-Espumantes $1100\n 4-Vino $1500\n 5-Ver total de la compra\n 0-Salir")
-    while (ingreseUnNumero != "0") {
-        switch (ingreseUnNumero) {
-            case "1":
-                alert("Has elegido fernet")
-                /*opcionFernet = prompt("¿Cuantos desea llevar? El fernet cuesta $2750 Pero contamos con las siguientes ofertas: A) x2 a $4800 B) x10 a $23500*/
-                sumaTotal = sumaTotal + 2750
-                alert(sumaTotal)
-                break;
-            case "2":
-                alert("Has elegido whisky")
-                /*let = prompt("¿Cuantos desea llevar? El whisky cuesta $3500 Pero contamos con las siguientes ofertas: A) x2 a $6000*/
-                sumaTotal = sumaTotal + 3500
-                alert(sumaTotal)
-                break;
-            case "3":
-                alert("Has elegido espumantes")
-                /*let = prompt("¿Cuantos desea llevar? Los espumantes rondan alrededor de $1100\n Pero contamos con las siguientes ofertas: A) x5 a $4600 B) x10 a $10000*/
-                sumaTotal = sumaTotal + 1100
-                alert(sumaTotal)
-                break;
-            case "4":
-                alert("Has elegido vino")
-            /*let = prompt("¿Cuantos desea llevar? Los vinos rondan alrededor de $1500 Pero contamos con las siguientes ofertas: A) x2 a $2700 B) x10 a $13000*/
-                sumaTotal = sumaTotal + 1500
-                alert(sumaTotal)
-                break;
-            case "5":
-                alertaCinco()
-                break;
-                default:
-                    alert("El número ingresado es incorrecto, vuelva a intentarlo")
+]
+
+let carrito = []
+
+let mensaje = "Bienvenido al Drugstore Online, ¿Que desea? \n1 - Bebidas\n2 - Agregar bebidas al carrito \n3 - Ver Stock Disponible \n4 - Categorias de Bebidas\n5 - Precios de menor a mayor segun la bebida\n6 - Ver carrito\n7 - Ver Total y finalizar compra\n0 - SALIR"
+
+let opcion
+
+do {
+    opcion = Number(prompt(mensaje))
+    if (opcion === 1) {
+        alert(listar(alcohol))
+    } else if (opcion === 2) {
+        let id = Number(prompt("Seleccione id del producto que desea comprar\n" + listar(alcohol)))
+        let bebidabuscada = alcohol.find(trago => trago.id === id)
+        let bebidasenCarrito = carrito.findIndex(prod => prod.id === bebidabuscada.id)
+
+        if (bebidasenCarrito === -1) {
+            carrito.push({
+                id: bebidabuscada.id,
+                bebida: bebidabuscada.bebida,
+                precioporUnidad: bebidabuscada.precio,
+                unidades: 1,
+                subtotal: bebidabuscada.precio
+            })
+        } else {
+            carrito[bebidasenCarrito].unidades++
+            carrito[bebidasenCarrito].subtotal = carrito[bebidasenCarrito].precioporUnidad * carrito[bebidasenCarrito].unidades
         }
-        ingreseUnNumero = prompt("Ingrese la opcion deseada:\n 1-Fernet $2750\n 2-Whisky $3500\n 3-Espumantes $1100\n 4-Vino $1500\n 5-Ver total de la compra\n 0-Salir")
-    }
-} else {
-    alert("Usted no cumple con la edad requerida para seguir avanzando con esta compra")
-}
-alert("Gracias por visitarnos")
-}
+        console.log(carrito)
+    } else if (opcion === 3) {
+        let listaTragos = "Stock disponible:\n"
+        for (const tragos of alcohol) {
+            listaTragos += "Bebida: " + tragos.bebida + " - Stock disponible: " + tragos.disponiblesstock + "\n"
+        }
+        alert(listaTragos)
 
-function alertaCinco() {
-    alert(sumaTotal)
+    } else if (opcion === 4) {
+        let categoria = prompt("Ingrese la categoría: aguardiente o fermentadas").toLowerCase()
+        let bebidasCategoria = alcohol.filter(alcohol => alcohol.categoria.toLowerCase() === categoria)
+        if (bebidasCategoria.length > 0) {
+            alert(listar(bebidasCategoria))
+        } else {
+            alert("No se encontraron productos en esa categoría.")
+        }
+
+    } else if (opcion === 5) {
+        alcohol.sort((a, b) => a.precio - b.precio)
+        let listaBebidas = "Bebidas ordenadas por precio de menor a mayor:\n"
+        for (const tragos of alcohol) {
+            listaBebidas += "Bebida: " + tragos.bebida + " - Precio: $" + tragos.precio + "\n"
+        }
+        alert(listaBebidas)
+    } if (opcion === 6) {
+        if (carrito.length > 0) {
+            alert(listar(carrito))
+        } else {
+            alert("Antes que nada debe agregar productos al carrito")
+        }
+    } else if (opcion === 7) {
+        let total = 0
+        carrito.forEach(alcohol => {
+            total += alcohol.subtotal
+        })
+        alert("Total de la compra: $" + total)
+        break
+    }
+} while (opcion !== 0)
+
+
+function listar(arrayAListar) {
+    let listado = "ID - Bebida\n"
+    arrayAListar.forEach(element => {
+        listado = listado + element.id + "-" + element.bebida + "\n"
+    })
+    return listado
 }
 
 

@@ -1,0 +1,374 @@
+body {
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', 'Trebuchet MS', Arial, sans-serif;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 13fr 2fr;
+    margin-bottom: 40px;
+    margin-top: 1px;
+    
+}
+
+.header__logo {
+    text-align: center;
+    
+}
+
+#header__usuario {
+    align-self: center;
+    color: rgb(34, 24, 24);
+    
+}
+
+#opcion__ingreso {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.ingreso__off {
+    display: none;
+}
+
+#cerrar__sesion {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.filtros__orden {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1.5fr 2fr 1fr 0.5fr;
+}
+
+.filtro__title {
+    color: rgb(212, 71, 71);
+    text-align: center;
+}
+
+.categorias__container {
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.botones__categoria {
+    background-color: rgb(12, 228, 163);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgb(117, 117, 117);
+    box-shadow: 3px 2px 2px rgb(212, 71, 71);
+}
+
+.botones__categoria:hover {
+    border: none;
+    background-color: rgb(212, 71, 71);
+}
+
+.orden__container {
+    align-self: center;
+}
+
+.orden__title {
+    color: rgb(212, 71, 71);
+    text-align: center;
+}
+
+.select__container {
+    border-radius: 10px;
+}
+
+#busqueda__input {
+    align-self: center;
+    border-radius: 10px;
+    height: 20px;
+}
+
+#productos__title {
+    color: rgb(10, 8, 8);
+    margin-left: 50px;
+    text-transform: uppercase;
+}
+
+
+
+
+.container__principal {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+}
+
+.container__productos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card__productos {
+    border: 3px rgb(240, 240, 240) solid;
+    background-color: rgb(253, 255, 255);
+    padding: 10px 10px;
+    margin: 10px 10px;
+    width: 250px;
+    height: 230px;
+    justify-self: center;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgb(212, 71, 71);
+}
+
+.titulo__producto {
+    margin-top: 0;
+}
+
+.imagen__producto {
+    width: 15%;
+}
+
+#button__producto {
+    background-color: rgb(0, 0, 0);
+    border: rgb(255, 255, 255) 1px solid;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 3px 2px 2px rgb(199, 207, 209);
+    border: 1px solid rgb(117, 117, 117);
+    color: aliceblue;
+}
+
+#button__producto:hover {
+    border: none;
+    background-color: rgb(212, 71, 71);
+}
+
+.container__carrito {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 90%;
+    height: 570px;
+}
+
+.container__carrito h2 {
+    text-align: center;
+}
+
+.carrito__indices {
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    text-align: center;
+}
+
+.carrito__indices p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.carrito__indices :last-child {
+    margin-right: 50px;
+}
+
+.carrito__producto {
+    display: grid;
+    grid-template-columns: 6fr 2fr 3fr 1fr;
+    align-items: end;
+}
+
+.carrito__producto p {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+.total__container {
+    text-align: center;
+}
+
+#parrafo__total {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.eliminar-producto {
+    cursor:pointer;
+}
+
+.boton__pagar {
+    margin-top: 15px;
+    text-align: center;
+    width: 90%;
+    background-color: rgb(12, 228, 163);
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.boton__pagar:hover {
+    border: none;
+    background-color: rgb(219, 166, 20);
+}
+
+.mega__container {
+    z-index: 10;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.1;
+}
+
+.logueo__container {
+    width: 500px;
+    height: 400px;
+    background-color: rgb(158, 255, 139);
+    position: fixed;
+    top: 100px;
+    left: 420px;
+    z-index: 0;
+    opacity: none;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid rgb(219, 166, 20);
+    box-shadow: 5px 5px 5px rgb(211, 211, 211);
+    border: 2px solid rgb(117, 117, 117);
+    padding-bottom: 10px;
+}
+
+.logueo__container h2 {
+    margin-bottom: 40px;
+}
+
+#form__ingreso {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#form__ingreso input {
+    width: 70%;
+    height: 30px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+#ingresar__button {
+    height: 30px;
+    width: 70%;
+    margin: auto;
+    background-color: rgb(209, 209, 218);
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#ingresar__button:hover {
+    background-color: rgb(158, 255, 139);
+}
+
+#equis__ingreso {
+    position: fixed;
+    top: 80px;
+    left: 920px;
+    background-color: grey;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#equis__ingreso:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+
+.contenedor__compra {    
+    display: flex;
+    flex-direction: column;
+    max-height: 700px;
+    width: 500px;
+    background-color: rgb(159, 252, 136);
+    position: fixed;
+    top: 30px;
+    left: 420px;
+    z-index: 0;
+    opacity: none;
+    border-radius: 20px;
+    border: 2px solid grey;
+    box-shadow: 5px 5px 5px rgb(211, 211, 211);
+    border: 2px solid rgb(117, 117, 117);
+    padding-bottom: 10px;
+}
+
+.contenedor__compra h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenedor__compra p {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+.parrafo__pago {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+#pago__final {
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgb(247, 247, 248);
+    cursor: pointer;
+    margin: auto;
+}
+
+#pago__final:hover {
+    background-color: rgb(158, 255, 139);
+    font-weight: bold;
+}
+
+#equis__pago {
+    position: fixed;
+    top: 20px;
+    left: 920px;
+    background-color: grey;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.contenedor__gracias {
+    width: 800px;
+    height: 200px;
+    background-color: rgb(158, 255, 139);
+    position: fixed;
+    top: 100px;
+    left: 280px;
+    z-index: 0;
+    opacity: none;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid grey;
+    box-shadow: 5px 5px 5px rgb(211, 211, 211);
+    border: 2px solid rgb(117, 117, 117);
+    padding-bottom: 10px;
+}
+
+.contenedor__gracias h2 {
+    font-size: 36px;
+    letter-spacing: 0.5rem;
+    margin-bottom: 70px;
+}
+
+.contenedor__gracias button {
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin: auto;
+}
+
+.contenedor__gracias button:hover {
+    background-color: rgb(158, 255, 139);
+}

@@ -4,13 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PreEntrega2Blasco</title>
+    <title>PreEntrega3Blasco</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div>
-    <h1>Drugstore Online B</h1>
-</div>
+    <div class="header">
+        <div class="header__logo">
+            <img src="./images/leoncio de luquee.png" class="imagen__header">
+        </div>
+        <div id="header__usuario">
+            <p id="opcion__ingreso">Iniciar sesion</p>
+        </div>
+    </div>
     
+    <div id="mega__container">
+        <div class="filtros__orden">
+            <h4 class="filtro__title">Filtrar por categorias:</h4>
+            <div class="categorias__container">
+                <button class="botones__categoria" value="Aguardiente" type="submit">Aguardientes</button>
+                <button class="botones__categoria" value="Fermentadas" type="submit">Fermentadas</button>
+                <button class="botones__categoria" value="Exclusivo" type="submit">Exclusivas</button>
+                <button class="botones__categoria" value="Todos" type="submit">Todas las bebidas</button>
+            </div>
+            <h4 class="orden__title">Ordenar segun:</h4>
+            <div class="orden__container">
+                <select class="select__container" name="" id="select__orden">
+                    <option value="none"></option>
+                    <option value="menorPrecio">Precio de: Menor a Mayor</option>
+                    <option value="mayorPrecio">Precio de: Mayor a Menor</option>
+                    <option value="menorStock">Stock de: Menor a Mayor</option>
+                    <option value="mayorStock">Stock de: Mayor a Menor</option>
+                </select>
+            </div>
+            <h4 class="orden__title">Buscar:</h4>
+            <input type="text" id="busqueda__input">
+        </div>
+
+        <h4 id="productos__title">Todas las bebidas</h4>
+
+        <div class="container__principal" id="container__principal">
+
+            <div class="container__productos" id="container__productos"></div>
+
+            <div class="container__compras">
+                <div class="container__carrito">
+                    <h2>Mi carrito:</h2>
+                    <hr>
+                    <div class="carrito__indices">
+                        <p>Bebida</p>
+                        <p>Unidades</p>
+                        <p>Precio</p>
+                    </div>
+                    <hr>
+                    <div class="container__carrito--productos" id="carrito__productos">
+                        
+
+                    </div>
+                    <div class="total__container">
+                        <p id="parrafo__total"></p>
+                    </div>
+                </div>
+                <button type="submit" class="boton__pagar" id="boton__pagar">PAGAR</button>
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -19,6 +77,8 @@
 
 
 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script.js"></script>
 </body>
 </html>

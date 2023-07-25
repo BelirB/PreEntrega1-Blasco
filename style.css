@@ -1,5 +1,6 @@
 body {
     font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', 'Trebuchet MS', Arial, sans-serif;
+    background-color: rgb(214, 173, 173);
 }
 
 .header {
@@ -43,7 +44,7 @@ body {
 }
 
 .filtro__title {
-    color: rgb(212, 71, 71);
+    color: #d44747;
     text-align: center;
 }
 
@@ -55,7 +56,7 @@ body {
 }
 
 .botones__categoria {
-    background-color: rgb(12, 228, 163);
+    background-color: #0ce4a3;
     border: none;
     padding: 5px 10px;
     border-radius: 10px;
@@ -74,7 +75,7 @@ body {
 }
 
 .orden__title {
-    color: rgb(212, 71, 71);
+    color: rgb(212, 30, 30);
     text-align: center;
 }
 
@@ -109,7 +110,7 @@ body {
 
 .card__productos {
     border: 3px rgb(240, 240, 240) solid;
-    background-color: rgb(253, 255, 255);
+    background-color: rgba(214, 180, 214, 0.233);
     padding: 10px 10px;
     margin: 10px 10px;
     width: 250px;
@@ -202,8 +203,8 @@ body {
     padding: 10px 10px;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 5px 5px 5px rgb(255, 255, 255);
-    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.774);
+    border: 2px solid rgba(255, 255, 255, 0.795);
 }
 
 .boton__pagar:hover {

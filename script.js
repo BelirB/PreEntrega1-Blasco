@@ -2,6 +2,14 @@
 const baseURL = "./json/data.json"
 
 let productos = []
+let carrito;
+
+const checkLocalStorage = () =>{
+  carrito = JSON.parse(localStorage.getItem('carrito')) || [] ;
+}
+
+checkLocalStorage();
+
 
 fetch(baseURL)
   .then(response => response.json())
@@ -9,6 +17,8 @@ fetch(baseURL)
     productos = data
 
   empaquetar(productos)
+
+  mostrarCarrito()
 
   let botonesCategoria = document.getElementsByClassName("botones__categoria")
   for (let i = 0; i < botonesCategoria.length; i++) {
@@ -20,10 +30,6 @@ fetch(baseURL)
 
   let busquedaInput = document.getElementById("busqueda__input")
   busquedaInput.addEventListener('input', recorrer)
-
-  window.addEventListener('beforeunload', function() {
-    localStorage.removeItem('carrito')
-  })
 
   let ingreso = document.getElementById("opcion__ingreso")
   ingreso.addEventListener("click", loguear)
@@ -125,9 +131,6 @@ function recorrer (event) {
 
 /* CARRITO and FUNCION COMPRAR */
 
-const carrito = JSON.parse(localStorage.getItem('carrito')) || []
-
-
 function comprar (event) {
     let productoId = parseInt(event.target.value)
     let producto = productos.find(producto => productoId === producto.id)
@@ -153,6 +156,8 @@ function comprar (event) {
         }
         localStorage.setItem('carrito', JSON.stringify(carrito))
         producto.stock--
+        productos[producto.id-1] = producto;
+        empaquetar(productos)
         
         mostrarCarrito()
 
@@ -303,7 +308,6 @@ function remove(index) {
     )
     
   }
-
 
 /* FUNCION PAGO */
 

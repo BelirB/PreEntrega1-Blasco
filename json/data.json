@@ -72,7 +72,7 @@
        "imagen":"./images/tequila.png"
     },
     {
-       "id":11,
+       "id":10,
        "nombre":"Ginebra",
        "categoria":"aguardiente",
        "stock":42,
@@ -80,7 +80,7 @@
        "imagen":"./images/ginebra.png"
     },
     {
-       "id":12,
+       "id":11,
        "nombre":"Jägermeister",
        "categoria":"Exclusivo",
        "stock":10,
@@ -88,7 +88,7 @@
        "imagen":"./images/jagger.png"
     },
     {
-       "id":13,
+       "id":12,
        "nombre":"J.Walker Blue Label",
        "categoria":"Exclusivo",
        "stock":1,
@@ -96,7 +96,7 @@
        "imagen":"./images/bluelabel.png"
     },
     {
-       "id":14,
+       "id":13,
        "nombre":"Nero 53",
        "categoria":"Exclusivo",
        "stock":15,
